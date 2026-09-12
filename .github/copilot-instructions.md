@@ -1,4 +1,4 @@
-# Repository Guidelines & AI Context: kithsync-api
+# Repository Guidelines & AI Context: kinsync-api
 
 ## Governance
 - **CONSTITUTION FIRST**: All code, architectural choices, refactoring, and AI responses MUST strictly adhere to `CONSTITUTION.md` located at the root of the repository.
