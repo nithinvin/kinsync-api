@@ -123,7 +123,7 @@ The following are prohibited and MUST be corrected before completion:
 - Never expose secrets, keys, or credentials in source code, logs, or error messages.
 - Use HTTPS exclusively for any external service communication.
 - Follow OWASP Top 10 guidance; review every new code path for injection vulnerabilities
-  (LDAP injection, command injection, path traversal).
+  (command injection, path traversal etc).
 - Dependency updates MUST be evaluated for known CVEs before adoption.
 
 ## Non-functional Requirements
