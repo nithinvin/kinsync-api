@@ -1,0 +1,13 @@
+source_roots = ["."]
+
+[[modules]]
+path = "main"
+depends_on = [{ path = "internal" }]
+
+[[modules]]
+path = "internal"
+depends_on = []
+
+[[modules]]
+path = "tests"
+depends_on = [{ path = "main" }, { path = "internal" }]
