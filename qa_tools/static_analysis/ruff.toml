@@ -1,0 +1,34 @@
+# Ruff configuration for scim-tools
+# Runs before pylint and mypy in check_sanity.sh — formats code and fixes
+# auto-correctable lint issues.  Pylint/mypy remain the primary analysis gate.
+line-length = 100
+target-version = "py311"
+# Exclude build artefacts, generated files, and cache directories.
+exclude = [
+    ".mypy_cache",
+    "build_area",
+    "qa_tools/coverage_html_report",
+]
+
+[lint]
+# E/W  — pycodestyle (basic style)
+# F    — pyflakes (unused imports, undefined names)
+# I    — isort (import ordering and grouping)
+# UP   — pyupgrade (modernise deprecated typing constructs, e.g. Dict→dict)
+select = ["E", "W", "F", "I", "UP"]
+
+ignore = [
+    # Line-length is enforced by pylint at the same 100-char limit; avoid
+    # double-reporting here.
+    "E501",
+    # "Ambiguous variable name" fires on single-letter loop counters that are
+    # intentional and already reviewed by pylint.
+    "E741",
+]
+
+[format]
+# Match the project's existing single-quote style so ruff format does not
+# churn the whole codebase.
+quote-style = "single"
+indent-style = "space"
+line-ending = "lf"

@@ -1,0 +1,18 @@
+[mypy]
+# Relax annotation requirements for test code — test functions do not need
+# full type annotations (the type-checking value in test code is lower, and
+# requiring annotations would add significant boilerplate without benefit).
+disallow_untyped_defs = False
+disallow_incomplete_defs = False
+
+# All other strict checks remain active:
+check_untyped_defs = True
+strict_equality = True
+warn_redundant_casts = True
+warn_unused_ignores = True
+warn_return_any = True
+no_implicit_optional = True
+ignore_missing_imports = True
+
+[mypy-requests]
+ignore_missing_imports = True

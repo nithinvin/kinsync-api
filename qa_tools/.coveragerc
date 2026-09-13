@@ -1,0 +1,15 @@
+[run]
+source =
+    internal
+branch = True
+
+[report]
+fail_under = 90
+show_missing = True
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    pass
+
+[html]
+directory = qa_tools/coverage_html_report
