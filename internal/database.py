@@ -3,6 +3,7 @@
 import logging
 
 from sqlalchemy import text
+from sqlalchemy.engine import make_url
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 
@@ -17,7 +18,14 @@ class DatabaseConnectionError(RuntimeError):
 
 def create_engine(settings: Settings) -> AsyncEngine:
     """Build the async SQLAlchemy engine from configured settings."""
-    return create_async_engine(settings.database_url, pool_pre_ping=True)
+    url = make_url(settings.database_url)
+    if url.get_backend_name() == 'postgresql':
+        # Postgres is only ever reached over loopback, so client-side TLS is unnecessary here
+        # (public traffic is already terminated at Caddy). This also sidesteps asyncpg's default
+        # 'prefer' sslmode, which probes ~/.postgresql/postgresql.crt and raises PermissionError
+        # under systemd's ProtectHome=true sandboxing.
+        url = url.update_query_dict({'ssl': 'disable'})
+    return create_async_engine(url, pool_pre_ping=True)
 
 
 async def check_connection(engine: AsyncEngine) -> None:

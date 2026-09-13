@@ -16,6 +16,27 @@ def test_create_engine_uses_configured_database_url() -> None:
     assert engine.url.drivername == 'sqlite+aiosqlite'
 
 
+def test_create_engine_disables_ssl_for_postgresql() -> None:
+    """Edge case: postgresql URLs get ssl=disable to avoid asyncpg's default cert probing."""
+    settings = Settings(
+        _env_file=None,  # type: ignore[call-arg]
+        database_url='postgresql+asyncpg://user:pass@localhost/kinsync',
+    )
+
+    engine = create_engine(settings)
+
+    assert engine.url.query['ssl'] == 'disable'
+
+
+def test_create_engine_leaves_non_postgresql_urls_untouched() -> None:
+    """Edge case: non-postgresql URLs (e.g. sqlite in tests) are not given an ssl query param."""
+    settings = Settings(_env_file=None, database_url='sqlite+aiosqlite:///:memory:')  # type: ignore[call-arg]
+
+    engine = create_engine(settings)
+
+    assert 'ssl' not in engine.url.query
+
+
 @pytest.mark.asyncio
 async def test_check_connection_succeeds_against_reachable_database() -> None:
     """Happy path: a reachable database does not raise."""
