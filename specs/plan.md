@@ -296,10 +296,10 @@ Baseline computation, deviation detection, escalation logic, pairing, FCM push, 
 ### Definition of Done for Phase-1
 
 - [ ] `spec.md` and `plan.md` reviewed and signed off by the project guide
-- [ ] VM reachable at `https://<domain>/health` returning 200 OK
-- [ ] `/health/db` confirms live PostgreSQL connectivity
-- [ ] Android app installed on a real test device, both special permissions requested and granted
-- [ ] At least 24 hours of real unlock-event data visible in the on-device debug screen
+- [x] VM reachable at `https://<domain>/health` returning 200 OK
+- [x] `/health/db` confirms live PostgreSQL connectivity
+- [x] Android app installed on a real test device, both special permissions requested and granted
+- [x] At least 24 hours of real unlock-event data visible in the on-device debug screen
 - [ ] This document updated with any deviations from plan, ready to hand off into Phase-2 planning
 
 ### Future Phases (placeholder — to be detailed once Phase-1 is complete)
