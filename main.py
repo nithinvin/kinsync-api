@@ -4,7 +4,7 @@ Run locally with:
     uvicorn main:app --reload
 
 In production the app is served by uvicorn under a systemd service, fronted
-by Caddy for TLS termination (see specs/deployment.md).
+by Caddy for TLS termination (see the deploy-api runbook in kinsync-docs and deploy/).
 """
 
 from collections.abc import AsyncIterator

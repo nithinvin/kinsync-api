@@ -1,0 +1,6 @@
+# KinSync — Caddy reverse proxy. Installed on the VM as /etc/caddy/Caddyfile.
+# Caddy obtains/renews the Let's Encrypt certificate automatically.
+# Runbook: https://github.com/nithinvin/kinsync-docs/blob/main/runbooks/caddy-and-tls.md
+kinsync.ddns.net {
+    reverse_proxy 127.0.0.1:8000
+}

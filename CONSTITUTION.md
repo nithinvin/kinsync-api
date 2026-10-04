@@ -1,14 +1,22 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change  : (template) → 1.0.0
-Added sections  : Core Principles (I–VII), Code Quality, Security,
-                  Non-functional Requirements, Governance
-Removed sections: n/a (first ratification of template)
-TODOs           : none — all placeholders resolved
+Version change  : 1.0.0 → 1.1.0
+Added sections  : Project-wide Principles (links kinsync-docs common principles)
+Rationale       : Cross-cutting rules (privacy, security baseline, API-contract-first, docs and
+                  git workflow) now live once in kinsync-docs and apply to both code repos.
+TODOs           : none
 -->
 
 # kinsync-api Constitution
+
+## Project-wide Principles
+
+This constitution builds on the
+[KinSync Common Engineering Principles](https://github.com/nithinvin/kinsync-docs/blob/main/engineering/common-principles.md)
+(privacy by construction, security baseline, testing baseline, API contract first, documentation
+discipline, git workflow). On those cross-cutting topics the common principles take precedence;
+this file adds the Python/FastAPI-specific rules.
 
 ## Core Principles
 
@@ -151,4 +159,4 @@ Amendment procedure:
 All pull requests MUST verify compliance with every principle herein before merging.
 Complexity or deviation from these principles MUST be explicitly justified in the PR description.
 
-**Version**: 1.0.0 | **Ratified**: 2026-09-12 | **Last Amended**: 2026-09-12
+**Version**: 1.1.0 | **Ratified**: 2026-09-12 | **Last Amended**: 2026-10-04
