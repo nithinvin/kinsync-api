@@ -1,10 +1,12 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change  : 1.0.0 → 1.1.0
-Added sections  : Project-wide Principles (links kinsync-docs common principles)
-Rationale       : Cross-cutting rules (privacy, security baseline, API-contract-first, docs and
-                  git workflow) now live once in kinsync-docs and apply to both code repos.
+Version change  : 1.1.0 → 1.1.1
+Modified        : Removed template leftovers from another project that don't apply to this
+                  web service: Quality Gates `build_scripts/build.sh` (no such script);
+                  Testing "New CLI options require component tests"; Design "Use the Command
+                  pattern for CLI dispatch" (no CLI here)
+Previous (1.1.0): Added Project-wide Principles (links kinsync-docs common principles)
 TODOs           : none
 -->
 
@@ -44,7 +46,6 @@ Every implementation MUST satisfy all of the following before a task is consider
 - Zero `pylint` warnings (configuration in `qa_tools/static_analysis/pylintrc`).
 - Zero `mypy` errors (configuration in `qa_tools/static_analysis/mypy_config`).
 - All unit tests passing (verified via `qa_tools/check_sanity.sh`).
-- Build succeeds via `build_scripts/build.sh`.
 
 No merge is permitted while any gate is red.
 
@@ -58,7 +59,6 @@ Every code change MUST include tests covering:
 - Empty / malformed input — robustness under bad data.
 
 Additional requirements:
-- New CLI options require component tests.
 - Every new code path MUST be exercised by at least one test.
 - Branch coverage is preferred over simple line coverage.
 
@@ -99,7 +99,6 @@ even when not immediately addressed.
 ### VII. Design Principles
 
 - Prefer factory functions over direct constructors where creation logic is non-trivial.
-- Use the Command pattern for CLI dispatch.
 - Avoid God classes — no class should own too many responsibilities.
 - Do not introduce patterns unless they demonstrably simplify maintenance.
 
@@ -159,4 +158,4 @@ Amendment procedure:
 All pull requests MUST verify compliance with every principle herein before merging.
 Complexity or deviation from these principles MUST be explicitly justified in the PR description.
 
-**Version**: 1.1.0 | **Ratified**: 2026-09-12 | **Last Amended**: 2026-10-04
+**Version**: 1.1.1 | **Ratified**: 2026-09-12 | **Last Amended**: 2026-10-04

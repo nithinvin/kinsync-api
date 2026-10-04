@@ -30,7 +30,7 @@ This repo's own docs:
 | GET | `/health` | Liveness → `{"status": "ok"}` |
 | GET | `/health/db` | PostgreSQL connectivity → `{"status": "ok"}` or `503` |
 
-Next: Phase-2 (pairing, auth, heartbeat) — see the
+Next: Phase-2 is Android-only (on-device data collection); backend pairing, auth and heartbeat come in Phase-3 — see the
 [roadmap](https://github.com/nithinvin/kinsync-docs/blob/main/plan/roadmap.md).
 
 ## Quick start

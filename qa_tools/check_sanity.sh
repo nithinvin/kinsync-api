@@ -331,7 +331,6 @@ run_component_tests()
 {
     echo ""
     echo -e "${CYAN}${BOLD}[component tests]${NC}"
-    echo -e "${YELLOW}Running against Neo4j server — this may take 30-40 seconds …${NC}"
     start=$(now_ms)
     # Stream output live (no capture) so each test prints as it completes.
     python3 -m pytest ${package_path}/tests/test_kinsync_component.py -v 2>&1 | \

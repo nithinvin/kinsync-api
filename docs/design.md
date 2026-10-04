@@ -35,9 +35,9 @@ on nothing local; `tests` → both.
 - **`/health/db` hides causes from clients.** Returns `503 {"detail": "Database unreachable"}`;
   the underlying error is logged server-side only.
 
-## Coming in Phase-2
+## Coming in Phase-3
 
 SQLAlchemy models + Alembic migrations, auth dependency (device bearer tokens), pairing and
 heartbeat routers — see
-[phase-2](https://github.com/nithinvin/kinsync-docs/blob/main/plan/phase-2.md). Add new routers
+[roadmap](https://github.com/nithinvin/kinsync-docs/blob/main/plan/roadmap.md). Add new routers
 under `internal/` and update this layout and `tach.toml` together.

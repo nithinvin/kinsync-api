@@ -1,4 +1,4 @@
-# Ruff configuration for scim-tools
+# Ruff configuration for kinsync-api
 # Runs before pylint and mypy in check_sanity.sh — formats code and fixes
 # auto-correctable lint issues.  Pylint/mypy remain the primary analysis gate.
 line-length = 100
